@@ -1,2 +1,74 @@
-# HEARTS-French-Adaptation
-Adaptation of the HEARTS framework using the FairTranslate dataset to detect stereotypes and bias in English-French machine translation.
+# French Stereotype Detection with CamemBERT  
+### An Adaptation of the HEARTS Framework for the AI for Sustainable Development Coursework
+
+This project adapts the HEARTS framework (*A Holistic Framework for Explainable, Sustainable and Robust Text Stereotype Detection*) to the **French language**, using the **FairTranslate** dataset to detect occupational gender stereotypes in translated sentences.  
+The goal is to evaluate whether a French transformer model (CamemBERT) can identify stereotyped content, compare it to a simple baseline and analyse potential bias and sustainability impacts.
+
+---
+
+## Motivation
+
+Gender stereotypes embedded in French translations are often reinforced by grammatical gender and occupational morphology.  
+Following the HEARTS methodology, this work investigates how machine learning models handle these biases and how performance varies across different stereotype categories.
+
+---
+
+## Dataset: FairTranslate
+
+FairTranslate contains **2,418 English–French sentence pairs**, each annotated with:
+- **Gender variant** (male, female, inclusive)  
+- **Ambiguity level** (ambiguous, unambiguous, long unambiguous)  
+- **Stereotype category** (male-stereotyped, female-stereotyped, neutral)  
+- **French occupational forms**, often gender-marked
+
+We fine-tune CamemBERT on **French text only**, since French morphology carries the gender information relevant to stereotype detection.
+
+---
+
+## Models
+
+### **Baseline**
+- TF-IDF + Logistic Regression  
+- Trained on French text  
+- Provides a simple baseline for comparison  
+
+### **CamemBERT**
+- `camembert-base` fine-tuned for binary classification  
+- Deterministic training setup for reproducible results  
+- Evaluated using macro-F1, per-class metrics, and subgroup analysis  
+
+---
+
+## Evaluation
+
+The project includes:
+- Confusion matrices  
+- Performance comparison baseline vs CamemBERT
+- Macro-F1 across training epochs  
+- Statistical significance testing (McNemar’s test)  
+- Bootstrap confidence intervals for F1  
+- CodeCarbon emissions tracking  
+
+Explainability tools (SHAP/LIME) were not used due to instability with BPE tokenization in French transformers.
+
+---
+
+## Running the Notebook
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+Launch
+```bash
+jupyter notebook
+```
+Open `camembert_fairtranslate.ipynb` and run all cells.
+
+---
+
+## References
+1. King, T, et al. (2024). "HEARTS: A Holistic Framework for Explainable,
+Sustainable and Robust Text Stereotype Detection".
+2. FairTranslate Dataset - https://huggingface.co/datasets/Fannyjrd/FairTranslate_fr
