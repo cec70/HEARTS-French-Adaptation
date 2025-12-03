@@ -60,11 +60,16 @@ Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
+
 Launch
-```bash
-jupyter notebook
-```
-Open `camembert_fairtranslate.ipynb` and run all cells.
+
+This project is designed to run directly in **Google Colab**.
+1. Open the notebook in Colab using this badge:
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/cec70/HEARTS-French-Adaptation/blob/main/HEARTS_FairTranslate_CamemBERT.ipynb)
+
+2. Once opened, run all cells from top to bottom (`Runtime -> Run all`).
+
 
 ---
 
