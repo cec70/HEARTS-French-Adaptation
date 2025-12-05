@@ -43,15 +43,15 @@ We fine-tune CamemBERT on **French text only**, since French morphology carries 
 ### **CamemBERT**
 - `camembert-base` fine-tuned for binary classification  
 - Deterministic training setup for reproducible results  
-- Evaluated using macro-F1, per-class metrics, and subgroup analysis  
+- Evaluated using classification report, macro-F1 and confusion matrix
 
 ---
 
 ## Evaluation
 
 The project includes:
-- Confusion matrices  
-- Performance comparison baseline vs CamemBERT
+- CamemBERT confusion matrix 
+- Performance comparison Baseline vs CamemBERT
 - Macro-F1 across training epochs  
 - Statistical significance testing (McNemar’s test)  
 - Bootstrap confidence intervals for F1  
